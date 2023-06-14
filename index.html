@@ -9,20 +9,42 @@
   <body>
     <div id="root"></div>
   </body>
-  <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react@17.0.2/umd/react.development.js"></script>
   <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
     function App() {
-      const [counter, setCounter] = React.useState(0);
-      const onClick = () => {
-        // setCounter(counter + 1); // 직접 값을 설정 -> 현재 값을 보장하지 않음
-        setCounter((current) => current + 1); //  함수 -> 이전 값을 바탕으로 현재 값을 설정하고 싶다면 더 나은 방법
+      const [minutes, setMinutes] = React.useState();
+      // 사용자가 값을 입력할 때마다(이벤트 감지) 변화
+      const onChange = (event) => {
+        setMinutes(event.target.value);
+      };
+      const reset = () => {
+        setMinutes(0);
       };
       return (
         <div>
-          <h3>Total clicks: {counter}</h3>
-          <button onClick={onClick}>Click me!</button>
+          <h1>Awesome Converter</h1>
+          <div>
+            <label htmlFor="minutes">Minutes</label>
+            <input
+              value={minutes}
+              id="minutes"
+              placeholder="Minutes"
+              type="number"
+              onChange={onChange}
+            />
+          </div>
+          <div>
+            <label htmlFor="hours">Hours</label>
+            <input
+              value={Math.floor(minutes / 60)}
+              id="hours"
+              placeholder="Hours"
+              type="number"
+            />
+          </div>
+          <button onClick={reset}>Reset</button>
         </div>
       );
     }
