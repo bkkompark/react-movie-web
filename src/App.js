@@ -1,7 +1,11 @@
+import Button from "./Button";
+import styles from "./App.module.css";
+
 function App() {
   return (
     <div>
-      <h1>Initial Commit</h1>
+      <h1 className={styles.title}>Initial Commit</h1>
+      <Button text={"Continue"} />
     </div>
   );
 }
