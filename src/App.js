@@ -1,35 +1,39 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function App() {
-  const [toDo, setToDo] = useState("");
-  const [toDos, setToDos] = useState([]);
-  const onChange = (event) => setToDo(event.target.value);
-  const onSubmit = (event) => {
-    event.preventDefault();
-    if (toDo === "") {
-      return;
-    }
-    setToDos((currentArray) => [toDo, ...currentArray]);
-    setToDo("");
-    console.log(toDo);
-  };
-  // console.log(toDos);
+  const [counter, setValue] = useState(0);
+  const [keyword, setKeyword] = useState("");
+
+  useEffect(() => {
+    console.log("CALL THE API...");
+  }, []);
+
+  // useEffect(() => {
+  //   if ((keyword !== "") & (keyword.length > 5)) {
+  //     console.log("SEARCH FOR " + keyword);
+  //   }
+  // }, [keyword]);
+
+  useEffect(() => {
+    console.log("I run when 'keyword' changes.");
+  }, [keyword]);
+  useEffect(() => {
+    console.log("I run when 'counter' changes.");
+  }, [counter]);
+  useEffect(() => {
+    console.log("I run when keyword & counter change");
+  }, [keyword, counter]);
+
   return (
     <div>
-      <h1>My ToDos ({toDos.length})</h1>
-      <form onSubmit={onSubmit}>
-        <input
-          onChange={onChange}
-          value={toDo}
-          type="text"
-          placeholder="Write your to do..."
-        />
-        <button>Add To Do</button>
-      </form>
-      <hr />
-      {toDos.map((item, index) => (
-        <li key={index}>{item}</li>
-      ))}
+      <input
+        value={keyword}
+        onChange={(event) => setKeyword(event.target.value)}
+        type="text"
+        placeholder="Search here..."
+      />
+      <h1>{counter}</h1>
+      <button onClick={() => setValue((prev) => prev + 1)}>click me</button>
     </div>
   );
 }
