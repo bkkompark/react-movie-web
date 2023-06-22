@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/main.936874a1.css","mappings":"AAAA,oBAGE,aAAc,CAFd,YAAa,CACb,2CAEF","sources":["components/Movie.module.css"],"sourcesContent":[".movie {\n  display: grid;\n  grid-template-columns: minmax(150px, 1fr) 2fr;\n  grid-gap: 20px;\n}\n"],"names":[],"sourceRoot":""}
