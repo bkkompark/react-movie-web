@@ -1,41 +1,23 @@
 import { useState, useEffect } from "react";
 
 function App() {
-  const [counter, setValue] = useState(0);
-  const [keyword, setKeyword] = useState("");
+  const [loading, setLoading] = useState(true);
+  const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-    console.log("CALL THE API...");
-  }, []);
-
-  // useEffect(() => {
-  //   if ((keyword !== "") & (keyword.length > 5)) {
-  //     console.log("SEARCH FOR " + keyword);
-  //   }
-  // }, [keyword]);
-
-  useEffect(() => {
-    console.log("I run when 'keyword' changes.");
-  }, [keyword]);
-  useEffect(() => {
-    console.log("I run when 'counter' changes.");
-  }, [counter]);
-  useEffect(() => {
-    console.log("I run when keyword & counter change");
-  }, [keyword, counter]);
-
-  return (
-    <div>
-      <input
-        value={keyword}
-        onChange={(event) => setKeyword(event.target.value)}
-        type="text"
-        placeholder="Search here..."
-      />
-      <h1>{counter}</h1>
-      <button onClick={() => setValue((prev) => prev + 1)}>click me</button>
-    </div>
-  );
+    // 셋업 함수 (해당 시스템에 연결하는 셋업 코드)
+    fetch(
+      `https://yts.mx/api/v2/list_movies.json?minimum_rating=9&sort_by=year`
+    )
+      .then((response) => response.json())
+      .then((json) => {
+        setMovies(json.data.movies);
+        setLoading(false);
+      });
+  }, []); // 컴포넌트의 모든 값을 포함한 의존성 목록
+  console.log(movies);
+  // 클린업 함수 반환 (해당 시스템과의 연결을 끊는 클린업 코드)
+  return <div>{loading ? <strong>Loading...</strong> : null}</div>;
 }
 
 export default App;
