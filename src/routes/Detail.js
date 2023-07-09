@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import Movie from "../components/Movie";
 
 function Detail() {
@@ -24,16 +24,13 @@ function Detail() {
     <strong>loading..</strong>
   ) : (
     <Movie
-      id={movie.id}
-      coverImg={movie.large_cover_image}
+      coverImg={movie.medium_cover_image}
       title={movie.title}
       rating={movie.rating}
-      year={movie.year}
-      genres={movie.genres}
       like={movie.like_count}
       download={movie.download_count}
-      description={movie.description_full}
       url={movie.url}
+      description={movie.description_full}
     />
   );
 }

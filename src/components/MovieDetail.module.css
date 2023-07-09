@@ -1,0 +1,38 @@
+.movie__detail {
+  margin-left: 25px;
+  display: flex;
+  flex-direction: column;
+  width: 36%;
+  color: #142d4c;
+  background-color: #ececec;
+  border-radius: 10px;
+  padding: 40px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  transition: transform 0.3s ease;
+  &:hover {
+    transform: translateY(-5px);
+  }
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  margin-top: 25px;
+}
+.hashtags {
+  margin: 20px 0;
+  font-size: 16px;
+  .hashtag {
+    color: white;
+    padding: 8px;
+    background-color: #53a8b6;
+    border-radius: 15px;
+    margin-right: 5px;
+  }
+}
+.summary {
+  font-size: 19px;
+  margin-top: 15px;
+  line-height: 1.4;
+}

@@ -1,45 +1,15 @@
 import { useState, useEffect } from "react";
+import MovieDetail from "../components/MovieDetail";
 import Movies from "../components/Movies";
-import { Link } from "react-router-dom";
 import styles from "./Home.module.css";
 
-import {
-  Navigation,
-  Pagination,
-  Scrollbar,
-  A11y,
-  Autoplay,
-} from "swiper/modules";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
-
-function MovieDetail({ id, title, summary, genres, year }) {
-  const MAX_LENGTH = 150;
-  const summaryTrimmed = summary.substr(0, MAX_LENGTH); // 250자까지 자름
-  const summaryLastIndex = summary.substr(0, MAX_LENGTH).lastIndexOf(" "); // 마지막 띄어쓰기 위치까지 자른 수
-  const summaryTrimmedIndex = summaryTrimmed.substr(0, summaryLastIndex);
-  const renderGenres = genres.map((genre) => (
-    <span className={styles.hashtag} key={genre}>
-      #{genre}
-    </span>
-  ));
-  return (
-    <div className={styles.movie__detail}>
-      <Link to={`/movie/${id}`}>
-        <h2 className={styles.title}>{title}</h2>
-      </Link>
-      <div>{year}</div>
-      <div className={styles.hashtags}>{renderGenres}</div>
-      <p className={styles.summary}>
-        {summary.length > MAX_LENGTH ? `${summaryTrimmedIndex}...` : summary}
-      </p>
-    </div>
-  );
-}
 
 function Home() {
   const [loading, setLoading] = useState(true);
@@ -63,16 +33,12 @@ function Home() {
     <div className={styles.container}>
       <h1 className={styles.heading}>🎬 TOP 10 MOVIES</h1>
       {loading ? (
-        <strong>Loading...</strong>
+        <strong className={styles.loading}>Loading...</strong>
       ) : (
         <div className={styles.swiperContainer}>
           <Swiper
             spaceBetween={30}
             centeredSlides={true}
-            // autoplay={{
-            //   delay: 3000,
-            //   disableOnInteraction: false,
-            // }}
             pagination={{
               clickable: true,
             }}
