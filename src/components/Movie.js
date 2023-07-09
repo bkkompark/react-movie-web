@@ -19,7 +19,7 @@ function Movie({
     <div>
       <img src={coverImg} alt={title} />
       <Link to={url}>
-        <h2 className={styles.movie__title}>{title}</h2>
+        <h2>{title}</h2>
       </Link>
       <div>{year}</div>
       <div>{renderGenres}</div>

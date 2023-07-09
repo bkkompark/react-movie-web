@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import Movies from "../components/Movies";
-import { Link } from "react-router-dom";
 import styles from "./Home.module.css";
 
 import {
@@ -16,6 +15,21 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
+
+function MovieDetail({ id, title, summary, genres, year }) {
+  const renderGenres = genres.map((genre) => <span key={genre}>#{genre}</span>);
+  const MAX_LENGTH = 250;
+  const summaryTrimmed = summary.substr(0, MAX_LENGTH); // 250자까지 자름
+  const summaryLastIndex = summary.substr(0, MAX_LENGTH).lastIndexOf(" "); // 마지막 띄어쓰기 위치까지 자른 수
+  const summaryTrimmedIndex = summaryTrimmed.substr(0, summaryLastIndex);
+  return (
+    <>
+      <h2>{title}</h2>
+      <div>{renderGenres}</div>
+    </>
+  );
+}
+
 function Home() {
   const [loading, setLoading] = useState(true);
   const [movies, setMovies] = useState([]);
@@ -44,7 +58,6 @@ function Home() {
           <Swiper
             spaceBetween={30}
             centeredSlides={true}
-            slidesPerView={3}
             // autoplay={{
             //   delay: 3000,
             //   disableOnInteraction: false,
@@ -62,10 +75,16 @@ function Home() {
                   <Movies
                     key={movie.id}
                     id={movie.id}
+                    title={movie.title}
                     coverImg={movie.medium_cover_image}
+                  />
+                  <MovieDetail
+                    key={movie.id}
+                    id={movie.id}
                     title={movie.title}
                     summary={movie.summary}
                     genres={movie.genres}
+                    year={movie.year}
                   />
                 </div>
               </SwiperSlide>

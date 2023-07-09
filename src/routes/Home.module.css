@@ -1,38 +1,18 @@
-:root {
-  --slider-padding: 5rem;
-}
-
 .container {
   display: flex;
-  justify-content: center;
-  /* height: 100%;
-  display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center; */
+  align-items: center;
+}
+
+.heading {
+  text-align: center;
+}
+
+.swiperContainer {
   width: 100%;
 }
 
-.slider {
+.swiperItems {
   display: flex;
-  width: calc(100% - 2 * 5rem);
-  transform: translateX(0%);
+  justify-content: center;
 }
-
-.handle {
-  border: none;
-  width: 5rem;
-  background-color: rgba(0, 0, 0, 0.25);
-  z-index: 10;
-  padding: 3.5rem;
-  margin: 2.5rem 0;
-  &:hover {
-    background-color: rgba(0, 0, 0, 0.5);
-    cursor: pointer;
-  }
-}
-
-/* .movies {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(400px, 1fr));
-} */
