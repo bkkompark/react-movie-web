@@ -18,6 +18,9 @@
     "swiper": "^10.0.4",
     "web-vitals": "^2.1.4"
   },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^1.0.0"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -44,5 +47,5 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https://bkkompark.github.io/react-movie-web"
+  "homepage": "https://bkkompark.github.io/react-movie-web/"
 }

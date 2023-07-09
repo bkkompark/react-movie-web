@@ -7,12 +7,13 @@
 
 .movie__title {
   text-align: center;
-  font-size: 65px;
+  font-size: 58px;
   font-weight: 800;
-  margin-top: 80px;
+  margin-top: 60px;
   margin-bottom: 20px;
   color: #142d4c;
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+  width: 80%;
 }
 
 .movie__img {
@@ -30,7 +31,7 @@
   justify-content: center;
   align-items: center;
   margin: 20px 0;
-  font-size: 16px;
+  font-size: 14px;
   > div {
     color: white;
     padding: 8px;
@@ -42,12 +43,13 @@
 
 .description {
   color: #142d4c;
-  font-weight: 600;
+  font-weight: 500;
   padding: 20px 50px;
-  margin-bottom: 60px;
-  font-size: 20px;
-  width: 40%;
+  margin-bottom: 40px;
+  font-size: 18px;
+  width: 60%;
   line-height: 2;
   background-color: #ececec;
+  opacity: 0.9;
   border-radius: 15px;
 }

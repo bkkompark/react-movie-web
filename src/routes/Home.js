@@ -31,7 +31,7 @@ function Home() {
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.heading}>🎬 TOP 10 MOVIES</h1>
+      <h1 className={styles.heading}>🎬 TOP MOVIES</h1>
       {loading ? (
         <strong className={styles.loading}>Loading...</strong>
       ) : (
