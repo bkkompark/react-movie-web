@@ -18,9 +18,9 @@ function Movie({
   return (
     <div>
       <img src={coverImg} alt={title} />
-      <h1>
-        <Link to={url}>{title}</Link>
-      </h1>
+      <Link to={url}>
+        <h2 className={styles.movie__title}>{title}</h2>
+      </Link>
       <div>{year}</div>
       <div>{renderGenres}</div>
       <div>{rating}/10</div>

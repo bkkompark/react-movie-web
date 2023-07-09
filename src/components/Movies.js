@@ -2,17 +2,25 @@ import propTypes from "prop-types";
 import { Link } from "react-router-dom";
 import styles from "./Movies.module.css";
 
-function Movies({ id, coverImg, title, summary, genres }) {
+function Movies({ id, coverImg, title, summary, genres, year }) {
   const renderGenres = genres.map((genre) => <span key={genre}>#{genre}</span>);
+  const MAX_LENGTH = 250;
+  const summaryTrimmed = summary.substr(0, MAX_LENGTH); // 250자까지 자름
+  const summaryLastIndex = summary.substr(0, MAX_LENGTH).lastIndexOf(" "); // 마지막 띄어쓰기 위치까지 자른 수
+  const summaryTrimmedIndex = summaryTrimmed.substr(0, summaryLastIndex);
   return (
-    <div>
-      <img src={coverImg} alt={title} />
-      <h2>
-        <Link to={`/movie/${id}`}>{title}</Link>
-      </h2>
-      <p>{summary}</p>
-      <div>{renderGenres}</div>
-    </div>
+    <>
+      <div className={styles.container}>
+        <Link to={`/movie/${id}`}>
+          <img className={styles.movie__img} src={coverImg} alt={title} />
+        </Link>
+        {/* <h2 className={styles.movie__title}>{title}</h2> */}
+      </div>
+      {/* <p>
+        {summary.length > MAX_LENGTH ? `${summaryTrimmedIndex}...` : summary}
+      </p>
+      <div>{renderGenres}</div> */}
+    </>
   );
 }
 

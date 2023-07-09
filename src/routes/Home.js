@@ -23,30 +23,25 @@ function Home() {
 
   return (
     <div>
+      <h1>TOP 10 MOVIES</h1>
       {loading ? (
         <strong>Loading...</strong>
       ) : (
-        <div>
-          {/* <Nav>
-            <NavItem href="/top" isActive>
-              Top Rated
-            </NavItem>
-            <NavItem href="/genres">Category</NavItem>
-          </Nav> */}
-          <div>
+        <div className={styles.container}>
+          <button className={styles.handle}></button>
+          <div className={styles.slider}>
             {movies.map((movie) => (
-              <>
-                <Movies
-                  key={movie.id}
-                  id={movie.id}
-                  coverImg={movie.medium_cover_image}
-                  title={movie.title}
-                  summary={movie.summary}
-                  genres={movie.genres}
-                />
-              </>
+              <Movies
+                key={movie.id}
+                id={movie.id}
+                coverImg={movie.medium_cover_image}
+                title={movie.title}
+                summary={movie.summary}
+                genres={movie.genres}
+              />
             ))}
           </div>
+          <button className={styles.handle}></button>
         </div>
       )}
     </div>
