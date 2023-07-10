@@ -27,3 +27,9 @@
   font-size: 20px;
   font-weight: 600;
 }
+
+.divLoading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

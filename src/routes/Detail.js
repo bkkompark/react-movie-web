@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Movie from "../components/Movie";
+import styles from "./Home.module.css";
 
 function Detail() {
   const [loading, setLoading] = useState(true);
@@ -21,7 +22,9 @@ function Detail() {
   }, []);
 
   return loading ? (
-    <strong>loading..</strong>
+    <div className={styles.divLoading}>
+      <strong className={styles.loading}>loading..</strong>
+    </div>
   ) : (
     <Movie
       coverImg={movie.medium_cover_image}
